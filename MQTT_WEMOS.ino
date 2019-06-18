@@ -1,18 +1,21 @@
-#include <ESP8266WiFi.h>
-#include <PubSubClient.h>
-#include <Stepper.h>
+#include <ESP8266WiFi.h>    // Wifi on ESP8266
+#include <PubSubClient.h>   // Mqtt library
+#include <Stepper.h>        //Stepper Library
 
 const int stepsPerRevolution = 32*64;
 Stepper myStepper(stepsPerRevolution, D8, D7, D6, D5);
   
- 
+// Wifi acces - change value
 const char* ssid = "SSID";
 const char* password =  "WIFIPASSWD";
+
+// MQTT Acces - change value
 const char* mqttServer = "MQTT ADDRESS";
 const int mqttPort = 1883;
 const char* mqttUser = "YourMqttUser";
 const char* mqttPassword = "YourMqttUserPassword";
- 
+
+// Initialize the client library
 WiFiClient espClient;
 PubSubClient client(espClient);
  
